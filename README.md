@@ -127,6 +127,12 @@ Install all dependencies listed before
   ```sh
   go run main.go
   ```
+![alt text](https://github.com/rdurelli/consumer-microservice-m2/blob/main/image/terminal.png?raw=true)
+
+As can ben seen we have available four commands: (i) completion, (ii) help, (iii) queue, and (iv) server. The first one is generated automatically by COBRA CLI. Command help show how to use the app. Command queue and server are the important ones. If I run:
+```sh
+  go run main.go queue --help
+  ```
 
 
 <!-- LICENSE -->
