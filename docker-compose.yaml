@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.6.17
+    container_name: mysql-db-email-queue
+    ports:
+      - '3307:3306'
+    restart: always
+    environment:
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_DATABASE=emailqueue
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./docker/volume_mysql:/var/lib/mysql
