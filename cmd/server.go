@@ -34,12 +34,14 @@ var serverCmd = &cobra.Command{
 	Use:   "server",
 	Short: "A web service to discover all information regarding the emails",
 	Run: func(cmd *cobra.Command, args []string) {
+		initServer()
+		initEmailController()
+		initRoutes()
 		router.Run(":" + webServicePort)
 	},
 }
 
 func init() {
-	cobra.OnInitialize(initServer, initEmailController, initRoutes)
 	rootCmd.AddCommand(serverCmd)
 	serverCmd.Flags().StringVarP(&webServicePort, "port", "p", "8080", "port to create the webservice")
 }

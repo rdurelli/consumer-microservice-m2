@@ -129,10 +129,13 @@ Install all dependencies listed before
   ```
 ![alt text](https://github.com/rdurelli/consumer-microservice-m2/blob/main/image/terminal.png?raw=true)
 
-As can ben seen we have available four commands: (i) completion, (ii) help, (iii) queue, and (iv) server. The first one is generated automatically by COBRA CLI. Command help show how to use the app. Command queue and server are the important ones. If I run:
+As can be seen we have available four commands: (i) completion, (ii) help, (iii) queue, and (iv) server. The first one is generated automatically by COBRA CLI. Command help show how to use the app. Command queue and server are the important ones. If I run:
 ```sh
   go run main.go queue --help
   ```
+![alt text](https://github.com/rdurelli/consumer-microservice-m2/blob/main/image/terminal2.png?raw=true)
+
+As can be noted we can specify some flags like address to connect the AMQP (RabbitMQ), SMTP Port etc. If none information is provided we have default values.
 
 
 <!-- LICENSE -->
