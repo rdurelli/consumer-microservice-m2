@@ -7,7 +7,7 @@
 <p align="center">
   
 
-<h3 align="center">Microservice M1</h3>
+<h3 align="center">Microservice M2</h3>
 
 The second micro-service (M2) was implemented using Go and some nice libs such as: (i) cobra to create a command line interface, (ii) Viper to read .env files, (iii) GIN to provide a web-service, and (iv) Gocron to trigger a task periodically. 
 
