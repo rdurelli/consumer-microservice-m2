@@ -148,6 +148,18 @@ The next command is the server command. By running you can define the port to cr
   ```
 ![alt text](https://github.com/rdurelli/consumer-microservice-m2/blob/main/image/terminal4.png?raw=true)
 
+To create the web-service just call the following command:
+
+```sh
+  go run main.go server 
+  ```
+
+![alt text](https://github.com/rdurelli/consumer-microservice-m2/blob/main/image/terminal5.png?raw=true)
+
+Two end-point is created as depicted in figure: (i) GET     /api/emails and (ii) GET    /api/emails/showAll
+
+The first end-point show all emails that have been failed to be sent. The second end-point list all emails.
+
 
 <!-- LICENSE -->
 ## License
