@@ -64,7 +64,7 @@ Important links:
 
 M1 GitHub: [link](https://github.com/rdurelli/save-user-microservice-m1.git)
 
-M2 GitHub: [link](https://github.com/rdurelli/save-user-microservice-m1.git)
+M2 GitHub: [link](https://github.com/rdurelli/consumer-microservice-m2.git)
 
 
 ### Built With
