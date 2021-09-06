@@ -136,7 +136,13 @@ As can be seen we have available four commands: (i) completion, (ii) help, (iii)
 ![alt text](https://github.com/rdurelli/consumer-microservice-m2/blob/main/image/terminal2.png?raw=true)
 
 As can be noted we can specify some flags like address to connect the AMQP (RabbitMQ), SMTP Port etc. If none information is provided we have default values.
+```sh
+  go run main.go queue 
+  ```
+Calling the command queue will start the RabbitMQ
+![alt text](https://github.com/rdurelli/consumer-microservice-m2/blob/main/image/terminal3.png?raw=true)
 
+The next command is the server command
 
 <!-- LICENSE -->
 ## License
