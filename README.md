@@ -142,7 +142,12 @@ As can be noted we can specify some flags like address to connect the AMQP (Rabb
 Calling the command queue will start the RabbitMQ
 ![alt text](https://github.com/rdurelli/consumer-microservice-m2/blob/main/image/terminal3.png?raw=true)
 
-The next command is the server command
+The next command is the server command. By running you can define the port to create the web-service, default is 8080
+```sh
+  go run main.go server --help 
+  ```
+![alt text](https://github.com/rdurelli/consumer-microservice-m2/blob/main/image/terminal4.png?raw=true)
+
 
 <!-- LICENSE -->
 ## License
