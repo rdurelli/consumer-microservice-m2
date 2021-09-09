@@ -32,6 +32,16 @@ func (rI repositoryImplementation) Save(user *model.User, sent bool) (*model.Use
 	return user, nil
 }
 
+func (rI repositoryImplementation) FindById(id int) (*model.EmailInformation, error) {
+	var emailInformation model.EmailInformation
+	err := rI.Db.Db.QueryRow("SELECT id, sent, created_at, updated_at, email, name, last_name FROM email_information where id = ? ", id).Scan(&emailInformation.Id, &emailInformation.Sent, &emailInformation.CreatedAt, &emailInformation.UpdatedAt, &emailInformation.Email, &emailInformation.Name, &emailInformation.LastName)
+	if err != nil {
+		log.Fatal("Not possible to query row", err)
+		return nil, err
+	}
+	return &emailInformation, nil
+}
+
 func (rI repositoryImplementation) Find(offset string, limit string) (*[]model.EmailInformation, error) {
 	var emailInformations = make([]model.EmailInformation, 0)
 	stmt, err := rI.Db.Db.Prepare("SELECT id, sent, created_at, updated_at, email, name, last_name FROM email_information WHERE sent = ? LIMIT ? OFFSET ? ")
