@@ -6,6 +6,7 @@ require (
 	github.com/gin-gonic/gin v1.7.4 // indirect
 	github.com/go-playground/validator/v10 v10.9.0 // indirect
 	github.com/go-sql-driver/mysql v1.6.0
+	github.com/jasonlvhit/gocron v0.0.1 // indirect
 	github.com/kr/pretty v0.3.0 // indirect
 	github.com/mattn/go-isatty v0.0.13 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect

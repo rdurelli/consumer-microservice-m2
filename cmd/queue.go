@@ -20,6 +20,7 @@ import (
 	email2 "consumer-rabbitmq/email"
 	"consumer-rabbitmq/model"
 	"consumer-rabbitmq/repository"
+	"consumer-rabbitmq/service"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -41,6 +42,7 @@ var (
 	passwordSmtp string
 	smtpHost     string
 	userSmtp     string
+	emailService service.EmailService
 	//DB vars
 	db   database.Db
 	repo repository.Repository
@@ -56,7 +58,7 @@ var queueCmd = &cobra.Command{
 }
 
 func init() {
-	cobra.OnInitialize(initDB, initRepository)
+	cobra.OnInitialize(initDB, initRepository, initEmailService)
 	rootCmd.AddCommand(queueCmd)
 
 	//RABBITMQ FLAGS
@@ -81,6 +83,12 @@ func initDB() {
 func initRepository() {
 	repo = repository.NewRepository(db)
 	fmt.Println("Repository ready")
+}
+
+func initEmailService() {
+	email := email2.NewEmail(portSmtp, from, passwordSmtp, smtpHost, "Welcome ", userSmtp)
+	emailService = service.EmailService{Email: email}
+	fmt.Println("Email Service ready")
 }
 
 func startQueue() {
@@ -130,13 +138,12 @@ func startQueue() {
 
 	go func() {
 		user := model.User{}
-		email := email2.NewEmail(portSmtp, from, passwordSmtp, smtpHost, "Welcome ", userSmtp)
 		for d := range msgs {
 			log.Printf("Received a message: %s", d.Body)
 			json.Unmarshal(d.Body, &user)
 
 			log.Println("USER : ", user.String())
-			err := email.SendEmail(user)
+			err := emailService.SendEmail(user)
 			if err != nil {
 				repo.Save(&user, false)
 			}
